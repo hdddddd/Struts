@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv = "Content-Type" content = "text/html; charset=UTF-8">
-<title>文件上传下载大家啊放大看是否健康</title>
+<title>文件上传和下载</title>
 </head>
 <body>
 	<form action = "FileUpload.action" method = "post" enctype = "multipart/form-data">
