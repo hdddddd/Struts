@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts>
+    <!-- 请求路径的后缀名 -->
+    <constant name="struts.action.extension" value="action" />
+    <interceptor name="parametersInterceptor" class="interceptor.ParametersInterceptor" />
+    
+    <interceptor name="fileUploadInterceptor" class="interceptor.FileUploadInterceptor">
+    	<!-- 限制上传文件扩展名 -->
+    	<param name = "fileUpload.allowedExtensions">.txt,.doc,.jpg,.jpeg</param>
+    	<!-- 限制上传文件最大值为4M -->
+    	<param name = "fileUpload.maximumSize">4194304</param>
+    	<!-- 限制上传文件类型 -->
+    	<param name = "fileUpload.allowedTypes">text/plain,application/msword,image/jpeg</param>
+    </interceptor>
+    
+    <!-- 3.定义一个action -->
+    <action name="FileUpload" class="action.FileUploadAction" method="execute">
+    	<result name="success">/success.jsp</result>
+    </action>
+    <action name="FileDownload" class = "action.FileDownloadAction" method = "execute">
+    	<result name="stream">
+    		<param name="inputName">downloadFile</param>
+    	</result>
+    </action>
+</struts>
